@@ -67,6 +67,9 @@ jobs:
       - name: Install backend dependencies
         run: npm ci
       - name: Run server
+        env:
+          SECRET: ${{ secrets.JWT_SECRET }}
+          MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
         run: npm start &
       - name: Run e2e tests with Cypress
         uses: cypress-io/github-action@v6
@@ -74,6 +77,3 @@ jobs:
           working-directory: ./frontend
           command: npm run test:e2e
           wait-on: http://localhost:3000
-        env:
-          SECRET: ${{ secrets.JWT_SECRET }}
-          MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
