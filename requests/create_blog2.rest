@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNpbGphc2kiLCJpZCI6IjY1ZTFlMmYxMTMyNTA2MjgyYTA1YzIwZiIsImlhdCI6MTcwOTMyMjMyOH0.bSqAk5uH_t-fqBPk10gGuvbFffqjc8i6GVkzNyUFl1g
+
+{
+    "url": "http://www.bikemanstala.com",
+    "title": "Maastopyörällä Mäntsälään",
+    "author": "Silja Silvonen",
+    "likes": 0
+}

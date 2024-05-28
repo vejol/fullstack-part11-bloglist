@@ -1,0 +1,9 @@
+PUT http://localhost:3003/api/blogs/659e823a7c914cd18f39e56a
+Content-Type: application/json
+
+{
+    "author": "Silja Silvonen",
+    "title": "Maastopyörällä Hollolaan",
+    "url": "http://www.bikemanstala.com",
+    "likes": 0
+}
