@@ -66,12 +66,13 @@ jobs:
         working-directory: ./frontend
       - name: Install backend dependencies
         run: npm ci
+      - name: Run server
+        run: npm start &
       - name: Run e2e tests with Cypress
         uses: cypress-io/github-action@v6
         with:
           working-directory: ./frontend
           command: npm run test:e2e
-          start: cd .. && npm run start
           wait-on: http://localhost:3000
         env:
           SECRET: ${{ secrets.JWT_SECRET }}
