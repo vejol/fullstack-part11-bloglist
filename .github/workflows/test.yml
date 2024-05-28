@@ -76,4 +76,5 @@ jobs:
         with:
           working-directory: ./frontend
           command: npm run test:e2e
+          config: baseUrl=http://localhost:3000
           wait-on: http://localhost:3000
