@@ -69,7 +69,7 @@ jobs:
       - name: Run server
         env:
           SECRET: ${{ secrets.JWT_SECRET }}
-          MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
           PORT: 5173
         run: npm run dev:test &
       - name: Run e2e tests with Cypress
