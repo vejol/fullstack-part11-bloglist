@@ -12,6 +12,8 @@ jobs:
   deployment_pipeline:
     needs: [test]
     runs-on: ubuntu-20.04
+    permissions:
+      contents: write
     if: ${{ !contains(join(github.event.commits.*.message, ', '), '#skip') }}
     steps:
       - uses: actions/checkout@v4
