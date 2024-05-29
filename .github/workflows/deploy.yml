@@ -17,6 +17,16 @@ jobs:
     if: ${{ !contains(join(github.event.commits.*.message, ', '), '#skip') }}
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install frontend dependencies
+        run: npm ci
+        working-directory: ./frontend
+      - name: build frontend
+        run: npm run build
+        working-directory: ./frontend
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Deploy to fly.io
         run: flyctl deploy --remote-only
@@ -41,14 +51,14 @@ jobs:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Send success message to discord webhook
         uses: rjstone/discord-webhook-notify@v1
-        if: ${{ needs.deployment_pipeline.result == 'success' }}
+        if: ${{ needs.deployment_pipeline.result == 'success' && !contains(join(github.event.commits.*.message, ', '), '#skip') }}
         with:
           severity: info
           details: A new version of bloglist deployed! 🚀 https://fullstack-osa11-bloglist.fly.dev/
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Send failure message to discord webhook
         uses: rjstone/discord-webhook-notify@v1
-        if: ${{ needs.deployment_pipeline.result != 'success' }}
+        if: ${{ needs.deployment_pipeline.result != 'success' && !contains(join(github.event.commits.*.message, ', '), '#skip') }}
         with:
           severity: error
           details: Deployment pipeline failed! 😢
