@@ -58,23 +58,26 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install backend dependencies
-        run: npm ci
-      - name: Run backend server
-        run: npm run dev:test &
-        env:
-          SECRET: ${{ secrets.JWT_SECRET }}
-          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
-          PORT: 3003
       - name: Install frontend dependencies
         run: npm ci
         working-directory: ./frontend
-      - name: Run frontend server
-        run: npm run dev &
+      - name: build frontend
+        run: npm run build
         working-directory: ./frontend
+      - name: Install backend dependencies
+        run: npm ci
+      - name: Run server
+        env:
+          SECRET: ${{ secrets.JWT_SECRET }}
+          MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          PORT: 5173
+        run: npm start &
       - name: Run e2e tests with Cypress
         uses: cypress-io/github-action@v6
         with:
           working-directory: ./frontend
           command: npm run test:e2e
+          config: baseUrl=http://localhost:5173
           wait-on: http://localhost:5173
+        env:
+          BACKEND: http://localhost:5173/api
