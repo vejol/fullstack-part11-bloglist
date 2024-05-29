@@ -71,7 +71,7 @@ jobs:
           SECRET: ${{ secrets.JWT_SECRET }}
           MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
           PORT: 5173
-        run: npm start &
+        run: NODE_ENV=test node index.js &
       - name: Run e2e tests with Cypress
         uses: cypress-io/github-action@v6
         with:
