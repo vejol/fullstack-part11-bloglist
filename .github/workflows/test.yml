@@ -76,7 +76,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           working-directory: ./frontend
-          command: npm run test:e2e
+          command: npx cypress run
           config: baseUrl=http://localhost:5173
           wait-on: http://localhost:5173
         env:
