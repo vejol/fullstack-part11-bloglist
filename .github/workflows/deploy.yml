@@ -46,7 +46,7 @@ jobs:
         uses: rjstone/discord-webhook-notify@v1
         if: ${{ contains(join(github.event.commits.*.message, ', '), '#skip') }}
         with:
-          severity: warning
+          severity: warn
           details: Production deployment was skipped because a commit message included \#skip 🤔
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Send success message to discord webhook
