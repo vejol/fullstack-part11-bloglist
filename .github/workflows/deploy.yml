@@ -48,7 +48,7 @@ jobs:
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Send failure message to discord webhook
         uses: rjstone/discord-webhook-notify@v1
-        if: ${{ needs.simple_deployment_pipeline.result != 'success' }}
+        if: ${{ needs.deployment_pipeline.result != 'success' }}
         with:
           severity: error
           details: Deployment pipeline failed! 😢
