@@ -1,8 +1,4 @@
-[![Lint and test code](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/test.yml/badge.svg)](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/test.yml)
-
-[![Health Check](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/health_check.yml/badge.svg)](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/health_check.yml)
-
-[![Deploy to production](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/deploy.yml/badge.svg)](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/deploy.yml)
+[![Lint and test code](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/test.yml/badge.svg)](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/test.yml) [![Health Check](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/health_check.yml/badge.svg)](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/health_check.yml) [![Deploy to production](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/deploy.yml/badge.svg)](https://github.com/vejol/fullstack-part11-bloglist/actions/workflows/deploy.yml)
 
 # Full Stack open CI/CD - Bloglist App
 
