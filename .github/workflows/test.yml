@@ -2,8 +2,8 @@ name: Lint and test code
 
 on:
   workflow_call:
-  schedule:
-    - cron: '50 3 * * *'
+  # schedule:
+  #   - cron: '50 3 * * *'
   pull_request:
     branches: [main]
     types: [opened, synchronize, reopened]
